@@ -1,7 +1,13 @@
 package com.guerrero.radio.radiochilpo;
 
 import android.content.Intent;
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.annotation.IntRange;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.LayoutInflater;
@@ -18,6 +24,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -54,7 +62,7 @@ public class MainActivity extends AppCompatActivity
 
 
 
-
+/**
 
         // A. Creamos el arreglo de Strings para llenar la lista
         String[] cosasPorHacer = new String[] { "Radio Online",
@@ -85,7 +93,24 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+*/
 
+
+
+        ArrayList<Category> category = new ArrayList<Category>();
+        Category item= new Category();
+        item.setCategoryId("0");
+        item.setTittle("Radios Online");
+                item.setDescription("chilpancingo");
+
+
+
+        ListView lv = (ListView) findViewById(R.id.listaMenu);
+
+        AdapterCategory adapter = new AdapterCategory(this, category);
+
+
+        lv.setAdapter(adapter);
 
     }//comentario
 
